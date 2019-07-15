@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration debug="false" scan="true" scanPeriod="5 minutes">
-    <contextName>easy-apollo-portal</contextName>
-
-    <!-- 日志文件存储路径 -->
-    <property name="LOG_HOME" value="logs"/>
-
+    <contextName>jwt-learn</contextName>
 
     <!-- 控制台输出 -->
     <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
