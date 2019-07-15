@@ -18,3 +18,8 @@ CREATE TABLE `Users` (
   ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COMMENT ='用户表';
+
+INSERT INTO `Users` (`Username`, `Password`, `Email`, `Enabled`)
+VALUES
+  ('learn', '$2a$10$Y986XPaJbnaYl.stY0uUi.mAtPgIkiWB2esr2h1DJjd1U7zdnXtPC
+', 'laujunbupt0913@163.com', 1);
