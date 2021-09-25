@@ -1,4 +1,4 @@
-package luckylau.spring;
+package luckylau.spring.jwt;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
@@ -14,7 +14,6 @@ import org.springframework.web.context.WebApplicationContext;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 
 /**
