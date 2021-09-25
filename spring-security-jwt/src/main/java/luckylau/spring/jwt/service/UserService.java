@@ -1,6 +1,6 @@
-package luckylau.spring.service;
+package luckylau.spring.jwt.service;
 
-import luckylau.spring.entity.UserInfo;
+import luckylau.spring.jwt.entity.UserInfo;
 
 /**
  * @Author luckylau

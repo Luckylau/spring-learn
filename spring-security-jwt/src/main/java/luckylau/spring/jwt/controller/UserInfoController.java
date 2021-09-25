@@ -1,10 +1,10 @@
-package luckylau.spring.controller;
+package luckylau.spring.jwt.controller;
 
-import luckylau.spring.entity.HttpResult;
-import luckylau.spring.entity.UserInfo;
-import luckylau.spring.security.WebSecurityConfig;
-import luckylau.spring.service.UserService;
-import luckylau.spring.utils.JwtTokenUtils;
+import luckylau.spring.jwt.entity.HttpResult;
+import luckylau.spring.jwt.entity.UserInfo;
+import luckylau.spring.jwt.security.WebSecurityConfig;
+import luckylau.spring.jwt.service.UserService;
+import luckylau.spring.jwt.utils.JwtTokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;

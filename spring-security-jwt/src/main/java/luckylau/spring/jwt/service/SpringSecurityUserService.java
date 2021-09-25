@@ -1,9 +1,9 @@
-package luckylau.spring.service;
+package luckylau.spring.jwt.service;
 
 
-import luckylau.spring.entity.UserInfo;
-import luckylau.spring.entity.UserPO;
-import luckylau.spring.repository.UserRepository;
+import luckylau.spring.jwt.entity.UserInfo;
+import luckylau.spring.jwt.entity.UserPO;
+import luckylau.spring.jwt.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

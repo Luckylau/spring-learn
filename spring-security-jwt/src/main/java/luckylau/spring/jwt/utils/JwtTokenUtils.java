@@ -1,4 +1,4 @@
-package luckylau.spring.utils;
+package luckylau.spring.jwt.utils;
 
 
 import io.jsonwebtoken.*;

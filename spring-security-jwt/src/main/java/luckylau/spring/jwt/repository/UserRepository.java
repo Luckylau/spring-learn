@@ -1,7 +1,7 @@
-package luckylau.spring.repository;
+package luckylau.spring.jwt.repository;
 
 
-import luckylau.spring.entity.UserPO;
+import luckylau.spring.jwt.entity.UserPO;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 /**
