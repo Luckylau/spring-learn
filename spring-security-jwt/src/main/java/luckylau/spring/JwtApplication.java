@@ -4,12 +4,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Hello world!
+ * @Author luckylau
+ * @Date 2021/9/25
  */
 @SpringBootApplication(scanBasePackages = "luckylau.spring")
-public class JwtApp {
+public class JwtApplication {
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(JwtApp.class, args);
+    public static void main(String[] args){
+        SpringApplication.run(JwtApplication.class, args);
     }
 }
