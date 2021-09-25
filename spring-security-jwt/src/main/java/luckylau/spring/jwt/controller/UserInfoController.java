@@ -23,6 +23,10 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/user")
 public class UserInfoController {
     private final UserService userService;
+    @Autowired
+    private JwtTokenUtils jwtTokenUtils;
+    @Autowired
+    private AuthenticationManager authenticationManager;
 
     public UserInfoController(UserService userService) {
         this.userService = userService;
@@ -32,11 +36,6 @@ public class UserInfoController {
     public UserInfo getUserByUserId(@PathVariable String username) {
         return userService.findByusername(username);
     }
-
-    @Autowired
-    private JwtTokenUtils jwtTokenUtils;
-    @Autowired
-    private AuthenticationManager authenticationManager;
 
     @PostMapping(value = "/login")
     public HttpResult<String> login(HttpServletRequest request, HttpServletResponse response) throws Exception {
