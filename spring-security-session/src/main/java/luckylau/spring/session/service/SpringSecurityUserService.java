@@ -3,8 +3,11 @@ package luckylau.spring.session.service;
 
 import luckylau.spring.session.entity.UserPO;
 import luckylau.spring.session.repository.UserRepository;
+import org.apache.commons.collections4.IteratorUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @Author luckylau
@@ -28,5 +31,10 @@ public class SpringSecurityUserService implements UserService {
     @Override
     public UserPO findById(Long id) {
         return userRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<UserPO> list() {
+        return IteratorUtils.toList(userRepository.findAll().iterator());
     }
 }
