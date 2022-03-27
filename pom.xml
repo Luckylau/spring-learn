@@ -10,19 +10,22 @@
     <modules>
         <module>spring-security-session</module>
         <module>spring-security-jwt</module>
+        <module>spring-statemachine-persist-1</module>
     </modules>
     <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.boot.version>2.0.5.RELEASE</spring.boot.version>
-        <platform-bom.version>Cairo-SR4</platform-bom.version>
+        <spring.boot.version>2.6.5</spring.boot.version>
+        <spring.security.version>2.6.2</spring.security.version>
+        <spring.machine.version>3.0.1</spring.machine.version>
+        <maven.compile.version>3.8.1</maven.compile.version>
     </properties>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.5.RELEASE</version>
+        <version>2.6.5</version>
     </parent>
 
     <dependencyManagement>
@@ -32,13 +35,11 @@
                 <artifactId>spring-boot-starter-web</artifactId>
                 <version>${spring.boot.version}</version>
             </dependency>
-            <!-- declare Spring BOMs in order -->
+
             <dependency>
-                <groupId>io.spring.platform</groupId>
-                <artifactId>platform-bom</artifactId>
-                <version>${platform-bom.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
+                <groupId>org.springframework.statemachine</groupId>
+                <artifactId>spring-statemachine-core</artifactId>
+                <version>${spring.machine.version}</version>
             </dependency>
 
             <dependency>
@@ -55,27 +56,21 @@
             </dependency>
 
             <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>1.2.71</version>
-            </dependency>
-
-            <dependency>
                 <groupId>org.springframework.session</groupId>
                 <artifactId>spring-session-core</artifactId>
-                <version>${spring.boot.version}</version>
+                <version>${spring.security.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.springframework.session</groupId>
                 <artifactId>spring-session-data-redis</artifactId>
-                <version>${spring.boot.version}</version>
+                <version>${spring.security.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-redis</artifactId>
-                <version>${spring-boot.version}</version>
+                <version>${spring.security.version}</version>
             </dependency>
 
             <dependency>
