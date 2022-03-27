@@ -1,7 +1,6 @@
 package luckylau.spring.session.security;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
+import luckylau.spring.session.util.JsonUtils;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -13,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * @Author luckylau
@@ -37,9 +37,9 @@ public class DefaultAuthenticationFilter extends AbstractAuthenticationProcessin
         }
 
         String body = getRequestBody(request);
-        JSONObject jsonObject = JSON.parseObject(body);
-        String username = jsonObject.getString("username");
-        String password = jsonObject.getString("password");
+        Map<String, String> jsonObject = JsonUtils.jsonToMap(body, String.class, String.class);
+        String username = jsonObject.get("username");
+        String password = jsonObject.get("password");
 
 
         if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {

@@ -12,7 +12,7 @@ import java.util.Collection;
  */
 public class DefaultAuthenticationToken extends UsernamePasswordAuthenticationToken {
 
-    private final UserPO user;
+    private UserPO user;
 
     public DefaultAuthenticationToken(Object principal, Object credentials,
                                       Collection<? extends GrantedAuthority> authorities, UserPO user) {

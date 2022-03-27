@@ -1,6 +1,5 @@
 package luckylau.spring.session.security;
 
-import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import luckylau.spring.session.vo.HttpResult;
 import org.springframework.security.core.Authentication;
@@ -12,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Author luckylau
@@ -23,7 +24,7 @@ public class DefaultAuthenticationSuccessHandler implements AuthenticationSucces
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
         httpServletResponse.setContentType("application/json;charset=utf-8");
-        JSONObject jsonObject = new JSONObject();
+        Map<String, Object> jsonObject = new HashMap<>();
         jsonObject.put("user", ((DefaultAuthenticationToken) authentication).getUser());
         HttpResult respBean = HttpResult.success(jsonObject);
         ObjectMapper om = new ObjectMapper();
