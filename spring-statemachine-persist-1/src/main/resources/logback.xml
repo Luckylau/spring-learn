@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration debug="false" scan="true" scanPeriod="5 minutes">
+    <contextName>jwt-learn</contextName>
+
+    <!-- 控制台输出 -->
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--格式化输出：%d:表示日期    %thread:表示线程名     %-5level:级别从左显示5个字符宽度  %msg:日志消息    %n:是换行符-->
+            <pattern>%date{yyyy-MM-dd HH:mm:ss} | %highlight(%-5level) | %boldMagenta(%thread) |
+                %boldGreen(%logger{36}.%M\(%line\)) | %cyan(%msg%n)
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <logger name="luckylau.spring.statemachine" additivity="false">
+        <level value="DEBUG"/>
+        <appender-ref ref="consoleAppender"/>
+    </logger>
+    <root level="INFO">
+        <appender-ref ref="consoleAppender"/>
+    </root>
+
+</configuration>

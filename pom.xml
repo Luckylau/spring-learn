@@ -11,6 +11,7 @@
         <module>spring-security-session</module>
         <module>spring-security-jwt</module>
         <module>spring-statemachine-persist-1</module>
+        <module>spring-statemachine-persist-2</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -40,6 +41,18 @@
                 <groupId>org.springframework.statemachine</groupId>
                 <artifactId>spring-statemachine-core</artifactId>
                 <version>${spring.machine.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.statemachine</groupId>
+                <artifactId>spring-statemachine-data-redis</artifactId>
+                <version>${spring.machine.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>3.11.5</version>
             </dependency>
 
             <dependency>
