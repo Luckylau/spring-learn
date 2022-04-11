@@ -28,3 +28,7 @@ curl --location --request POST '127.0.0.1:8070/user/login' \
 
 PersistStateMachineHandler+PersistStateChangeListener
 
+### spring-statemachine-persist-2
+
+StateMachineRuntimePersister
+
