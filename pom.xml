@@ -12,6 +12,7 @@
         <module>spring-security-jwt</module>
         <module>spring-statemachine-persist-1</module>
         <module>spring-statemachine-persist-2</module>
+        <module>spring-statemachine-persist-3</module>
     </modules>
     <packaging>pom</packaging>
 
