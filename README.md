@@ -32,3 +32,6 @@ PersistStateMachineHandler+PersistStateChangeListener
 
 StateMachineRuntimePersister
 
+### spring-statemachine-persist-3
+
+StateMachinePersister
