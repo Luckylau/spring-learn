@@ -18,7 +18,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.boot.version>2.6.5</spring.boot.version>
+        <spring.boot.version>2.6.6</spring.boot.version>
         <spring.security.version>2.6.2</spring.security.version>
         <spring.machine.version>3.0.1</spring.machine.version>
         <maven.compile.version>3.8.1</maven.compile.version>
