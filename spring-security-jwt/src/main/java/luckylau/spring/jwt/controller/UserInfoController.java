@@ -34,7 +34,7 @@ public class UserInfoController {
 
     @GetMapping("/{username}")
     public UserInfo getUserByUserId(@PathVariable String username) {
-        return userService.findByusername(username);
+        return userService.findByUsername(username);
     }
 
     @PostMapping(value = "/login")
@@ -43,7 +43,7 @@ public class UserInfoController {
         String password = request.getParameter("password");
 
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username, password);
-        HttpResult<String> rr = new HttpResult<String>();
+        HttpResult<String> rr = new HttpResult<>();
         try {
             //通过 AuthenticationManager（默认实现为ProviderManager）的authenticate方法验证 Authentication 对象
             Authentication authentication = authenticationManager.authenticate(authenticationToken);

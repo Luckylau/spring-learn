@@ -7,5 +7,5 @@ import luckylau.spring.jwt.entity.UserInfo;
  * @Date 2019/7/11
  */
 public interface UserService {
-    UserInfo findByusername(String username);
+    UserInfo findByUsername(String username);
 }

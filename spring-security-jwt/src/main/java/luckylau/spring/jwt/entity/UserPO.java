@@ -8,20 +8,20 @@ import javax.persistence.*;
  * @Date 2019/7/11
  */
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 public class UserPO {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Id")
+    @Column(name = "id")
     private long id;
-    @Column(name = "Username", nullable = false)
+    @Column(name = "username", nullable = false)
     private String username;
-    @Column(name = "Password", nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
-    @Column(name = "Email", nullable = false)
+    @Column(name = "email", nullable = false)
     private String email;
-    @Column(name = "Enabled", nullable = false)
+    @Column(name = "enabled", nullable = false)
     private int enabled;
 
     public long getId() {

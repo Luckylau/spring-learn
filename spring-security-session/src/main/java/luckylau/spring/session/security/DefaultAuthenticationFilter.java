@@ -24,7 +24,7 @@ public class DefaultAuthenticationFilter extends AbstractAuthenticationProcessin
 
     public static final String POST = "POST";
 
-    protected DefaultAuthenticationFilter(String defaultFilterProcessesUrl) {
+    public DefaultAuthenticationFilter(String defaultFilterProcessesUrl) {
         super(defaultFilterProcessesUrl);
     }
 
@@ -49,9 +49,12 @@ public class DefaultAuthenticationFilter extends AbstractAuthenticationProcessin
 
         String body = getRequestBody(request);
         Map<String, String> jsonObject = JsonUtils.jsonToMap(body, String.class, String.class);
+        if (jsonObject == null) {
+            throw new AuthenticationServiceException(
+                    "Authentication params error");
+        }
         String username = jsonObject.get("username");
         String password = jsonObject.get("password");
-
 
         if (ObjectUtils.isEmpty(username) || ObjectUtils.isEmpty(password)) {
             throw new AuthenticationServiceException("用户名或密码不能为空");

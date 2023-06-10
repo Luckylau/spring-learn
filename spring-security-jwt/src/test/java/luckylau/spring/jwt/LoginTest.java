@@ -1,7 +1,10 @@
 package luckylau.spring.jwt;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -32,18 +35,25 @@ public class LoginTest {
 
 
     @Test
-    public void login() throws Exception{
+    @Order(1)
+    public void login() throws Exception {
         String result = mockMvc.perform(post("/user/login").contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .param("username","learn").param("password","learn"))
+                .param("username", "learn").param("password", "learn"))
                 .andReturn().getResponse().getContentAsString();
         log.info("result:{}", result);
+        ObjectMapper mapper = new ObjectMapper();
+        Assertions.assertEquals(200, mapper.readTree(result).get("code").asInt());
     }
 
     @Test
-    public void getUsername() throws Exception{
+    @Order(2)
+    public void getUsername() throws Exception {
         String result = mockMvc.perform(get("/user/learn"))
                 .andReturn().getResponse().getContentAsString();
         log.info("result:{}", result);
+        ObjectMapper mapper = new ObjectMapper();
+        Assertions.assertEquals("learn", mapper.readTree(result).get("name").asText());
+
     }
 
 

@@ -27,7 +27,7 @@ public class UserController {
     public HttpResult getUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
-            return null;
+            return HttpResult.fail("NOT FOUND");
         }
         return HttpResult.success(((DefaultAuthenticationToken) authentication).getUser());
     }
