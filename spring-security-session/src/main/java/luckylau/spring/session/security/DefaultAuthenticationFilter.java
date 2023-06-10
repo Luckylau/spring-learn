@@ -1,12 +1,13 @@
 package luckylau.spring.session.security;
 
 import luckylau.spring.session.util.JsonUtils;
+import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
-import org.springframework.util.StringUtils;
+import org.springframework.util.ObjectUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,6 +36,16 @@ public class DefaultAuthenticationFilter extends AbstractAuthenticationProcessin
             throw new AuthenticationServiceException(
                     "Authentication method not supported: " + request.getMethod());
         }
+        String contentType = request.getContentType();
+        if (contentType == null) {
+            throw new AuthenticationServiceException(
+                    "Authentication contentType not found");
+        }
+        MediaType mediaType = MediaType.parseMediaType(contentType);
+        if (!MediaType.APPLICATION_JSON.includes(mediaType)) {
+            throw new AuthenticationServiceException(
+                    "Authentication contentType only supported: " + MediaType.APPLICATION_JSON.toString());
+        }
 
         String body = getRequestBody(request);
         Map<String, String> jsonObject = JsonUtils.jsonToMap(body, String.class, String.class);
@@ -42,7 +53,7 @@ public class DefaultAuthenticationFilter extends AbstractAuthenticationProcessin
         String password = jsonObject.get("password");
 
 
-        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
+        if (ObjectUtils.isEmpty(username) || ObjectUtils.isEmpty(password)) {
             throw new AuthenticationServiceException("用户名或密码不能为空");
         }
 
